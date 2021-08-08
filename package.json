@@ -1,0 +1,23 @@
+{
+  "name": "groupwebsite",
+  "version": "1.0.0",
+  "description": "website for entertainment group",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kayn-Pleiades/groupwebsite.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kayn-Pleiades/groupwebsite/issues"
+  },
+  "homepage": "https://github.com/Kayn-Pleiades/groupwebsite#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
