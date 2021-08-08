@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import './App.css';
 import Navbar from './components/navbar';
 import Home from './pages/home';
+import Members from './pages/members';
 
 class App extends Component {
 state = {
@@ -32,6 +33,7 @@ state = {
           <Navbar />
           <Switch>
             <Route exact path="/" component={Home} />
+            <Route exact path="/members" component={Members} />
           </Switch>
         </div>
       </Router>

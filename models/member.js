@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 
 const memberSchema = new Schema({
   name: { type: String, required: true },
+  fullname: { type: String },
   url: { type: String },
   image1: { type: String },
   image2: { type: String },
