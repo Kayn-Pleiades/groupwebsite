@@ -1,9 +1,21 @@
 const express = require('express');
+
 const app = express();
-const port = process.env.PORT || 5000;
+const mongoose = require("mongoose");
+const PORT = process.env.PORT || 5000;
+const routes = require("./routes");
 
-app.listen(port, () => console.log(`Listening on port ${port}`));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
-app.get('/express_backend', (req, res) => { 
-    res.send({ express: 'YOUR EXPRESS BACKEND IS CONNECTED TO REACT' }); 
-}); 
+if (process.env.NODE_ENV === "production") {
+    app.use(express.static("client/build"));
+}
+
+app.use(routes);
+
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/members");
+
+app.listen(PORT, function() {
+    console.log(`🌎  ==> Backend is now listening on PORT ${PORT}!`);
+  });
