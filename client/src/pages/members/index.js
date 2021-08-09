@@ -1,4 +1,5 @@
 import React from "react";
+import MemberContainer from "../../components/memberContainer";
 import './style.css';
 
 function Members() {
@@ -11,7 +12,7 @@ function Members() {
             </div>
             <div className="row d-flex justify-content-center pt-3">
                 <div className="col-7">
-                    
+                    <MemberContainer />
                 </div>
             </div>
         </div>

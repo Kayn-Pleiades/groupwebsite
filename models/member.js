@@ -17,6 +17,6 @@ const memberSchema = new Schema({
   rig: { type: String }
 });
 
-const Member = mongoose.model("Member", memberSchema);
+const Member = mongoose.model("Dreamy", memberSchema, "dreameMembers");
 
 module.exports = Member;

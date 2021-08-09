@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ProfileCard from "../profileCard";
-import API from "../utils/API";
+import API from "../../utils/API";
 
 function MemberContainer() {
     const [members, setMembers] = useState([]);
