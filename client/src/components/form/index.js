@@ -1,5 +1,11 @@
 import React from "react";
 
+export function Label(props) {
+  return (
+    <label className="col-form-label" {...props} />
+  );
+}
+
 export function Input(props) {
   return (
     <div className="form-group">
