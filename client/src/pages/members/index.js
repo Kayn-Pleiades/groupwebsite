@@ -1,6 +1,6 @@
 import React from "react";
 import MemberContainer from "../../components/memberContainer";
-import './style.css';
+import '../members/style.css';
 
 function Members() {
     return (
