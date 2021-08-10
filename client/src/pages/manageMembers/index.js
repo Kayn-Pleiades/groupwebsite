@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import FileBase64 from "react-file-base64";
 import { Input, Label } from "../../components/form";
 import API from "../../utils/API";
 import '../manageMembers/style.css';
@@ -77,6 +78,22 @@ function ManageMembers() {
                                         onChange={handleInputChange}
                                         name="url"
                                     />
+                                </div>
+                            </div>
+                            <div className="row mb-3 justify-content-center">
+                                <Label className="col-sm-2"> 
+                                    Chibi Image
+                                </Label>
+                                <div className="col-sm-10">
+                                    <FileBase64 type="file" multiple={false} onDone={ ({ base64 }) =>  setFormObject({...formObject, image1: base64})} />
+                                </div>
+                            </div>
+                            <div className="row mb-3 justify-content-center">
+                                <Label className="col-sm-2"> 
+                                    Model Image
+                                </Label>
+                                <div className="col-sm-10">
+                                    <FileBase64 type="file" multiple={false} onDone={ ({ base64 }) =>  setFormObject({...formObject, image2: base64})} />
                                 </div>
                             </div>
                         </form>
