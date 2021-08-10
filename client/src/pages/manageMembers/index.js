@@ -4,6 +4,7 @@ import '../manageMembers/style.css';
 
 function ManageMembers() {
     const [members, setMembers] = useState([]);
+    const [memberForm, setMemberForm] = useState(false);
 
     useEffect(() => {
         loadMembers()
@@ -28,6 +29,13 @@ function ManageMembers() {
                     <h1>Manage Members</h1>
                 </div>
             </div>
+            {memberForm && (
+                <div className="row d-flex justify-content-center">
+                    <div className="col-8">
+                        <h1>FORM GOES HERE</h1>
+                    </div>
+                </div>
+            )}
             <div className="row d-flex justify-content-center">
                 <div className="col-8">
                     {members.length ? (
@@ -53,7 +61,7 @@ function ManageMembers() {
             <div className="row d-flex text-center justify-content-center">
                 <div className="col-8">
                     <div class="d-grid gap-2">
-                        <button class="btn btn-success" type="button">Add Member</button>
+                        <button class="btn btn-success" type="button" onClick={() => setMemberForm(true)}>Add Member</button>
                     </div>
                 </div>
             </div>
