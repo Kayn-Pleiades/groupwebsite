@@ -1,4 +1,37 @@
-table {
-    width: 90%;
-    max-height: 300px;
+.list-overflow-container {
+    max-height: 500px;
+    border: 1px #DDDDDD solid;
+    border-radius: 50x;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+  
+  .list-overflow-container ul {
+    margin: 0;
+  }
+  
+  .list-overflow-container li {
+    border-radius: 0px;
+    border-left: none;
+    border-right: none;
+  }
+  
+  .list-overflow-container li * {
+    cursor: pointer;
+  }
+  
+  .list-overflow-container li a {
+    color: #2A878C;
+  }
+  
+  .list-overflow-container li:first-child {
+    border-top: none;
+  }
+  
+  .list-overflow-container li:last-child {
+    border-bottom: none;
+  }
+
+img {
+    max-height: 100px;
 }
