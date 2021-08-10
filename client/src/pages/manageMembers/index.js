@@ -9,6 +9,8 @@ function ManageMembers() {
     const [memberForm, setMemberForm] = useState(false);
     const [addMemberBtn, setAddMemberButton] = useState(true);
     const [formObject, setFormObject] = useState({});
+    const [color1, setColor1] = useState({});
+    const [color2, setColor2] = useState({});
 
     useEffect(() => {
         loadMembers()
@@ -35,6 +37,17 @@ function ManageMembers() {
         const { name, value } = event.target;
         setFormObject({...formObject, [name]: value})
     };
+
+    function changeColor1(event) {
+        const { name, value } = event.target;
+        setColor1(value);
+        setFormObject({...formObject, [name]: value})
+    }
+    function changeColor2(event) {
+        const { name, value } = event.target;
+        setColor2(value);
+        setFormObject({...formObject, [name]: value})
+    }
 
     return (
         <div className="container-fluid">
@@ -94,6 +107,22 @@ function ManageMembers() {
                                 </Label>
                                 <div className="col-sm-10">
                                     <FileBase64 type="file" multiple={false} onDone={ ({ base64 }) =>  setFormObject({...formObject, image2: base64})} />
+                                </div>
+                            </div>
+                            <div className="row mb-3 justify-content-center">
+                                <Label className="col-sm-2"> 
+                                    Image Color
+                                </Label>
+                                <div className="col-sm-10">
+                                    <input type="color" name="color1" value={color1} onChange={changeColor1} />
+                                </div>
+                            </div>
+                            <div className="row mb-3 justify-content-center">
+                                <Label className="col-sm-2"> 
+                                    Accent Color
+                                </Label>
+                                <div className="col-sm-10">
+                                    <input type="color" name="color1" value={color2} onChange={changeColor2} />
                                 </div>
                             </div>
                         </form>
