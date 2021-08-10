@@ -42,12 +42,43 @@ function ManageMembers() {
         const { name, value } = event.target;
         setColor1(value);
         setFormObject({...formObject, [name]: value})
-    }
+    };
+
     function changeColor2(event) {
         const { name, value } = event.target;
         setColor2(value);
         setFormObject({...formObject, [name]: value})
-    }
+    };
+
+    function reloadMembers() {
+        loadMembers();
+        setMemberForm(false);
+        setAddMemberButton(true);
+        setFormObject({});
+    };
+
+    function handleFormSubmit(event) {
+        event.preventDefault();
+        if (formObject.name) {
+            API.saveMember({
+                name: formObject.name,
+                fullname: formObject.fullname,
+                url: formObject.url,
+                image1: formObject.image1,
+                image2: formObject.image2,
+                color1: formObject.color1,
+                color2: formObject.color2,
+                debut: formObject.debut,
+                birthday: formObject.birthday,
+                pronouns: formObject.pronouns,
+                content: formObject.content,
+                artist: formObject.artist,
+                rig: formObject.rig
+            })
+                .then(res => reloadMembers())
+                .catch(err => console.log(err));
+        }
+    };
 
     return (
         <div className="container-fluid">
@@ -97,15 +128,13 @@ function ManageMembers() {
                                 <Label className="col-sm-2"> 
                                     Chibi Image
                                 </Label>
-                                <div className="col-sm-10">
+                                <div className="col-sm-4">
                                     <FileBase64 type="file" multiple={false} onDone={ ({ base64 }) =>  setFormObject({...formObject, image1: base64})} />
                                 </div>
-                            </div>
-                            <div className="row mb-3 justify-content-center">
                                 <Label className="col-sm-2"> 
                                     Model Image
                                 </Label>
-                                <div className="col-sm-10">
+                                <div className="col-sm-4">
                                     <FileBase64 type="file" multiple={false} onDone={ ({ base64 }) =>  setFormObject({...formObject, image2: base64})} />
                                 </div>
                             </div>
@@ -113,17 +142,76 @@ function ManageMembers() {
                                 <Label className="col-sm-2"> 
                                     Image Color
                                 </Label>
-                                <div className="col-sm-10">
+                                <div className="col-sm-4">
                                     <input type="color" name="color1" value={color1} onChange={changeColor1} />
+                                </div>
+                                <Label className="col-sm-2"> 
+                                    Accent Color
+                                </Label>
+                                <div className="col-sm-4">
+                                    <input type="color" name="color1" value={color2} onChange={changeColor2} />
                                 </div>
                             </div>
                             <div className="row mb-3 justify-content-center">
                                 <Label className="col-sm-2"> 
-                                    Accent Color
+                                    Debut Date
+                                </Label>
+                                <div className="col-sm-4">
+                                    <input type="date" name="debut" onChange={handleInputChange} />
+                                </div>
+                                <Label className="col-sm-2"> 
+                                    Birthday
+                                </Label>
+                                <div className="col-sm-4">
+                                    <input type="date" name="birthday" onChange={handleInputChange} />
+                                </div>
+                            </div>
+                            <div className="row mb-3">
+                                <Label className="col-sm-2"> 
+                                    Pronouns
                                 </Label>
                                 <div className="col-sm-10">
-                                    <input type="color" name="color1" value={color2} onChange={changeColor2} />
+                                    <Input 
+                                        onChange={handleInputChange}
+                                        name="pronouns"
+                                    />
                                 </div>
+                            </div>
+                            <div className="row mb-3">
+                                <Label className="col-sm-2"> 
+                                    Content
+                                </Label>
+                                <div className="col-sm-10">
+                                    <Input 
+                                        onChange={handleInputChange}
+                                        name="content"
+                                    />
+                                </div>
+                            </div>
+                            <div className="row mb-3">
+                                <Label className="col-sm-2"> 
+                                    Artist
+                                </Label>
+                                <div className="col-sm-10">
+                                    <Input 
+                                        onChange={handleInputChange}
+                                        name="artist"
+                                    />
+                                </div>
+                            </div>
+                            <div className="row mb-3">
+                                <Label className="col-sm-2"> 
+                                    Rig
+                                </Label>
+                                <div className="col-sm-10">
+                                    <Input 
+                                        onChange={handleInputChange}
+                                        name="rig"
+                                    />
+                                </div>
+                            </div>
+                            <div class="d-grid gap-2 mb-3">
+                                <button class="btn btn-success" type="button" onClick={handleFormSubmit}>Add Member</button>
                             </div>
                         </form>
                     </div>
