@@ -40,7 +40,7 @@ function Profile() {
             <div className="row d-flex justify-content-center">
                 <div className="col-7">
                     <ProfileOverview
-                        image={thisMember.image1}
+                        image={thisMember.image2}
                         color={thisMember.color1}
                         debut={moment.utc(thisMember.debut).format('MMMM Do YYYY')}
                         birthday={moment.utc(thisMember.birthday).format('MMMM Do')}

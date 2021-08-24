@@ -6,8 +6,8 @@ function Members() {
     return (
         <div className="container-fluid">
             <div className="row d-flex justify-content-center">
-                <div className="col p-5">
-                    <h1>Members</h1>
+                <div className="col pt-5">
+                    <p className="memberPageTitle">Members</p>
                 </div>
             </div>
             <div className="row d-flex justify-content-center pt-3">

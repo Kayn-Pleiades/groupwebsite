@@ -1,13 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Secular+One');
 
-h1 {
+.memberPageTitle {
     display: flex;
     justify-content: center;
     align-items: flex-end;
+    font-size: 80px;
     font-family: 'Secular One';
     color: black;
     -webkit-text-fill-color: white; 
-    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-width: 3px;
     -webkit-text-stroke-color: black;
     text-shadow:
        3px 3px 0 #000,
